@@ -1,4 +1,4 @@
-# nvim-input-switch
+# imeflow.nvim
 
 **Seamless IME switching for Neovim on Windows**  
 Automatically switches to **Chinese IME** when entering Insert mode, and back to **English IME** when leaving it—no manual switching required.
@@ -39,7 +39,7 @@ Automatically switches to **Chinese IME** when entering Insert mode, and back to
 
 ```lua
 {
-  "396458015/nvim-input-switch",
+  "396458015/imeflow.nvim",
   event = "InsertEnter",   -- Lazy-load the plugin when entering Insert mode for the first time
   opts = {
     -- path = "D:/tools/im-select.exe",  -- (Optional) Absolute path to im-select.exe if not using the default bundled one
@@ -58,5 +58,27 @@ opts = {
   path = "C:/my-tools/im-select.exe",
   -- …other flags
 }
+```
+
+---
+
+## ⚠️ Note
+
+This plugin relies on a custom helper function `nvim_create_augroups`.  
+Make sure to define it in your `init.lua` before using the plugin:
+
+```lua
+
+local function nvim_create_augroups(definitions)
+    for group_name, definition in pairs(definitions) do
+        vim.api.nvim_command("augroup " .. group_name)
+        vim.api.nvim_command("autocmd!")
+        for _, def in ipairs(definition) do
+            local command = table.concat(vim.tbl_flatten { "autocmd", def }, " ")
+            vim.api.nvim_command(command)
+        end
+        vim.api.nvim_command "augroup END"
+    end
+end
 ```
 
