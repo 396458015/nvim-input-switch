@@ -1,22 +1,25 @@
 # nvim-input-switch
 
-**Seamless IME switching for Neovim**  
-Automatically switches to **Chinese IME in Insert mode** and back to **English IME in Normal mode**—no extra keystrokes required.
+**Seamless IME switching for Neovim on Windows**  
+Automatically switches to **Chinese IME** when entering Insert mode, and back to **English IME** when leaving it—no manual switching required.
 
 ---
 
 ## ✨ Features
 
-- 🔄 **Auto-toggle IME**  
-  - Insert → Chinese (default `2052`)  
-  - Normal / Visual / Command → English (default `1033`)
-- ⚙️ **Fully configurable** via `opts`  
-  - Per-event enable/disable  
-  - Per-event language code  
-  - Custom path to `im-select.exe`
-- 🪄 **Zero-config path detection**  
-  - If you keep `im-select.exe` inside the plugin folder, no path is required.
-- 💤 **Lazy-load friendly** – loads on first `InsertEnter`
+- 🔄 **Automatic IME toggling**
+  - `InsertEnter` → switches to Chinese (default: `2052`)
+  - `InsertLeave`, `Normal`, `Visual`, `Command` → switches to English (default: `1033`)
+- ⚙️ **Fully configurable**
+  - Enable or disable switching for each event
+  - Customize IME language codes per event
+  - Specify your own path to `im-select.exe`
+- 🔍 **Zero-configuration path detection**
+  - If `im-select.exe` is placed in the plugin directory, no path setup is needed
+- 💤 **Supports lazy-loading**
+  - Designed to load on first `InsertEnter` for performance
+- 🪟 **Windows only**
+  - This plugin targets Windows users exclusively
 
 ---
 
