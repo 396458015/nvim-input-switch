@@ -18,7 +18,8 @@ Automatically switches to **Chinese IME** when entering Insert mode, and back to
   - If `im-select.exe` is placed in the plugin directory, no path setup is needed
 - 💤 **Supports lazy-loading**
   - Designed to load on first `InsertEnter` for performance
-- 🪟 **Windows only**
+  - With lazy-loading, Neovim startup time can drop from ~100ms to ~50ms
+- 🛠️ **Windows only**
   - This plugin targets Windows users exclusively
 
 ---
@@ -39,18 +40,18 @@ Automatically switches to **Chinese IME** when entering Insert mode, and back to
 ```lua
 {
   "396458015/nvim-input-switch",
-  event = "InsertEnter",   -- load on first insert
+  event = "InsertEnter",   -- Lazy-load the plugin when entering Insert mode for the first time
   opts = {
-    -- path = "D:/tools/im-select.exe",  -- absolute path if you keep it elsewhere
-    VimEnter    = false,   -- IME on Neovim start
-    InsertEnter = true,    -- IME on insert
-    InsertLeave = true,    -- switch back on leaving insert
-    VimLeave    = false,   -- switch back on exit
+    -- path = "D:/tools/im-select.exe",  -- (Optional) Absolute path to im-select.exe if not using the default bundled one
+    VimEnter    = true,    -- Switch to English input method when Neovim starts
+    InsertEnter = true,    -- Switch to Chinese input method when entering Insert mode
+    InsertLeave = true,    -- Switch back to English when leaving Insert mode
+    VimLeave    = true,    -- Switch to English when exiting Neovim
   },
 }
 ```
 
-If you use your own 'im-select.exe'
+If you use your own `im-select.exe`
 
 ```lua
 opts = {
