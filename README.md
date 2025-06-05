@@ -45,6 +45,7 @@ Automatically switches to **Chinese IME in Insert mode** and back to **English I
     VimLeave    = false,   -- switch back on exit
   },
 }
+```
 
 If you use your own 'im-select.exe'
 
