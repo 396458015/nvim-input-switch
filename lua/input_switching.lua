@@ -56,8 +56,13 @@ function M.setup(opts)
   opts = opts or {}
 
   -- 获取当前插件所在目录，自动拼接 im-select.exe 路径
+  -- local plugin_dir = debug.getinfo(1, "S").source:sub(2):match("(.*/)")
+  -- local default_path = plugin_dir .. "im-select.exe"
+
   local plugin_dir = debug.getinfo(1, "S").source:sub(2):match("(.*/)")
-  local default_path = plugin_dir .. "im-select.exe"
+  local root_dir = vim.fs.dirname(plugin_dir:sub(1, #plugin_dir - 1))
+  local default_path = root_dir .. "/im-select.exe"
+
 
   -- 优先使用 opts.path，否则用默认路径
   local exe = opts.path or default_path
