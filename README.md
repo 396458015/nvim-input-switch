@@ -82,3 +82,9 @@ local function nvim_create_augroups(definitions)
 end
 ```
 
+---
+
+## 🙏 Special Thanks
+
+Huge thanks to [im-select](https://github.com/daipeihust/im-select) for providing the core IME switching functionality used in this program.
+
