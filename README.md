@@ -60,6 +60,10 @@ opts = {
 }
 ```
 
+⚠️ Caveat about VimEnter
+
+If you use event = "InsertEnter" with Lazy.nvim to lazy-load the plugin, then VimEnter = true will not take effect, because the plugin is not loaded when the VimEnter event occurs.
+
 ---
 
 ## ⚠️ Note
